@@ -1,2 +1,4 @@
 arch.txt
-fights.*
+fights*
+.idea
+__pycache__
