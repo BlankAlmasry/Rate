@@ -11,7 +11,6 @@ from writers.csv_writer import CsvWriter
 def main(file, player_a, player_b, result_a,
          algorithm_name, output_format,
          result_win="1", result_loss="0", result_draw="0.5"):
-    print("Hello World")
     name, extension = os.path.splitext(file)
     if extension == ".csv":
         reader = CsvReader(file)
@@ -82,13 +81,5 @@ if __name__ == "__main__":
     ]
 
     answers = prompt(questions)
-    print(answers)
-    main(answers['file'], answers['player_a'], answers['player_b'], answers['result_a'], answers['algorithm_name'],
-         answers['output_format'], answers['result_win'], answers['result_loss'], answers['result_draw'])
-
-# TODO: add support for glicko-2
-# TODO: support for json
-# TODO: actually use the GUI
-# TODO: actually use output format
-# TODO: refactor calculator file, it's disturbing
-# TODO: perhaps seperate GUI and main file
+    main(**answers)
+    print("Done")
