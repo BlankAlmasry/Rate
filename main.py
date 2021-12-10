@@ -1,4 +1,6 @@
+from __future__ import print_function, unicode_literals
 import os
+from PyInquirer import prompt
 
 from calculator import compute
 from readers.csv_reader import CsvReader
@@ -29,8 +31,64 @@ def main(file, player_a, player_b, result_a,
 
 
 if __name__ == "__main__":
-    main('fights.csv', 'fighter1', 'fighter2', 'result1',
-         'elo', 'csv',
-         result_win='win',
-         result_loss='loss',
-         result_draw='draw')
+    questions = [
+        {
+            'type': 'input',
+            'name': 'file',
+            'message': 'Path to file with matches (csv or json):',
+        },
+        {
+            'type': 'input',
+            'name': 'player_a',
+            'message': 'First Player Key: (column header or key, pick a unique identifier for each player)',
+        },
+        {
+            'type': 'input',
+            'name': 'player_b',
+            'message': 'Second Player Key: (column header or key, pick a unique identifier for each player)',
+        },
+        {
+            'type': 'input',
+            'name': 'result_a',
+            'message': 'Result for player A: (column header or key)',
+        },
+        {
+            'type': 'list',
+            'name': 'algorithm_name',
+            'message': 'Algorithm you want to use to rate the matches:',
+            'choices': ['elo', 'glicko-2'],
+        },
+        {
+            'type': 'list',
+            'name': 'output_format',
+            'message': 'Output format:',
+            'choices': ['csv', 'json'],
+        },
+        {
+            'type': 'input',
+            'name': 'result_win',
+            'message': 'Result for a win:(how would a win is typed in the result column)',
+        },
+        {
+            'type': 'input',
+            'name': 'result_loss',
+            'message': 'Result for a loss:(how would a loss is typed in the result column)',
+        },
+        {
+            'type': 'input',
+            'name': 'result_draw',
+            'message': 'Result for a draw:(how would a win is typed in the result column)',
+        },
+    ]
+
+    answers = prompt(questions)
+    print(answers)
+    main(answers['file'], answers['player_a'], answers['player_b'], answers['result_a'], answers['algorithm_name'],
+         answers['output_format'], answers['result_win'], answers['result_loss'], answers['result_draw'])
+
+# TODO: add support for glicko-2
+# TODO: support for json
+# TODO: actually use the GUI
+# TODO: actually use output format
+# TODO: refactor calculator file, it's disturbing
+# TODO: perhaps seperate GUI and main file
