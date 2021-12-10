@@ -1,4 +1,4 @@
-from algorithms.elo.ELOPlayer import ELOPlayer
+from algorithms.elo.elo_player import ELOPlayer
 from algorithms.rating_algorithm import RatingAlgorithmInterface
 
 
