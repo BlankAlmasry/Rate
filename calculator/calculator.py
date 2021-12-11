@@ -2,26 +2,25 @@ from algorithms.rating_algorithm import RatingAlgorithmInterface
 from containers.players_container import PlayersContainer
 from readers.reader import Reader
 from writers.writer import Writer
-from util.result import Result
+from util.result import ResultHandler
 
 
 def compute(reader: Reader,
             writer: Writer,
             algorithm: RatingAlgorithmInterface,
-            result_handler: Result):
+            result_handler: ResultHandler):
     print("Computing...")
     players_container = PlayersContainer()
     while True:
         try:
             # read next line if exists
-            player1, player2, result1 = next(reader)
+            player1, player2, result_for_player1 = next(reader)
 
             # get player ratings and decide match result according to user specification
-            literal_result = result1
             p1 = find_or_create_player(algorithm, player1, players_container)
             p2 = find_or_create_player(algorithm, player2, players_container)
             try:
-                result = result_handler.get_result_from_string(literal_result)
+                result = result_handler.get_result_from_string(result_for_player1)
             except ValueError as error_message:
                 print(error_message)
                 continue
@@ -45,14 +44,6 @@ def compute(reader: Reader,
             writer.close()
             break
     print("Done")
-
-
-def fetch_file_headers(player_a_column, player_b_column, reader, result_a):
-    keys = reader.keys()
-    player_a_index = keys.index(player_a_column)
-    player_b_index = keys.index(player_b_column)
-    result_a_index = keys.index(result_a)
-    return player_a_index, player_b_index, result_a_index
 
 
 def find_or_create_player(algorithm, player, players_container):

@@ -28,13 +28,15 @@ def main(file, player_a_index, player_b_index, result_a_index,
         algorithm = ELORatingAlgorithm()
     else:
         algorithm = None
+
     # create writer
     writer = CsvWriter(name + "_" + algorithm_name + "." + output_format)
 
-    # start calculation
-    result = ResultHandler(result_win, result_loss, result_draw)
+    # create result handler to handle results according to the user specifications
+    result_handler = ResultHandler(result_win, result_loss, result_draw)
 
-    compute(reader, writer, algorithm, result)
+    # start calculation
+    compute(reader, writer, algorithm, result_handler)
 
 
 if __name__ == "__main__":
