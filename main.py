@@ -1,7 +1,8 @@
 from __future__ import print_function, unicode_literals
+
+import json
 import os
 
-from config import supported_readers, supported_algorithms, supported_writers
 from calculator.calculator import Calculator
 from util.result import ResultHandler
 
@@ -10,6 +11,13 @@ def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
          result_win="1", result_loss="0", result_draw="0.5"):
     name, extension = os.path.splitext(file)
+
+    # fetch config
+    with open('config.json', 'r') as f:
+        data = json.load(f)
+        supported_algorithms = data["supported_algorithms"]
+        supported_readers = data["supported_readers"]
+        supported_writers = data["supported_writers"]
 
     # create reader
     columns_indexes = [player_a_index, player_b_index, result_a_index]
@@ -20,6 +28,7 @@ def main(file, player_a_index, player_b_index, result_a_index,
     else:
         print("Unsupported file format")
         return
+
     # Choose algorithm
     if algorithm_name in supported_algorithms:
         a = supported_algorithms[algorithm_name]
