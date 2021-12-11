@@ -4,6 +4,7 @@ from readers.reader import Reader
 from writers.writer import Writer
 
 
+
 def compute(reader: Reader,
             writer: Writer,
             player_a_column,

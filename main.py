@@ -2,7 +2,7 @@ from __future__ import print_function, unicode_literals
 import os
 from PyInquirer import prompt
 
-from calculator import compute
+from calculator.calculator import compute
 from readers.csv_reader import CsvReader
 from readers.json_reader import JsonReader
 from writers.csv_writer import CsvWriter
