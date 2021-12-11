@@ -22,7 +22,7 @@ def compute(reader: Reader,
                 [player2, algorithm.rating_object()]
             ])
 
-            # get result in terms of 1, 0 or 0.5
+            # get result in terms of 1, 0 or 0.5, if text is not recognized, skip it
             try:
                 result = result_handler.get_result_from_string(result_for_player1)
             except ValueError as error_message:
@@ -33,8 +33,7 @@ def compute(reader: Reader,
             p1_updated, p2_updated = algorithm.compute_match(p1, p2, result)
 
             # update players container
-            players_container.update_player(player1, p1_updated)
-            players_container.update_player(player2, p2_updated)
+            players_container.update_players([[player1, p1_updated], [player2, p2_updated]])
 
             # write new ratings
             writer.write([
@@ -48,4 +47,3 @@ def compute(reader: Reader,
             writer.close()
             break
     print("Done")
-
