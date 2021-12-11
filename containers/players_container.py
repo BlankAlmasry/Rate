@@ -17,6 +17,17 @@ class PlayersContainer:
             raise ValueError(f"Player {key} does not exist")
         self.players[key] = value
 
+    def find_or_add_players(self, players: list[list]):
+        updated_players = []
+        for player in players:
+            if player[0] not in self.players.keys():
+                self.add_player(player[0], player[1])
+                updated_players.append(player[1])
+            else:
+                player_rating = self.get_player(player[0])
+                updated_players.append(player_rating)
+        return updated_players
+
     def __del__(self):
         self.players.clear()
         del self.players

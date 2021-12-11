@@ -17,8 +17,12 @@ def compute(reader: Reader,
             player1, player2, result_for_player1 = next(reader)
 
             # get player ratings and decide match result according to user specification
-            p1 = find_or_create_player(algorithm, player1, players_container)
-            p2 = find_or_create_player(algorithm, player2, players_container)
+            p1, p2 = players_container.find_or_add_players([
+                [player1, algorithm.rating_object()],
+                [player2, algorithm.rating_object()]
+            ])
+
+            # get result in terms of 1, 0 or 0.5
             try:
                 result = result_handler.get_result_from_string(result_for_player1)
             except ValueError as error_message:
@@ -37,7 +41,7 @@ def compute(reader: Reader,
                 [player1, str(p1_updated.rating)],
                 [player2, str(p2_updated.rating)],
             ])
-        # if no more lines to read, break, empty memory, close files and exit
+        # if no more lines to read, break, empty the memory, close the files and exit
         except StopIteration:
             del players_container
             reader.close()
@@ -45,11 +49,3 @@ def compute(reader: Reader,
             break
     print("Done")
 
-
-def find_or_create_player(algorithm, player, players_container):
-    try:
-        player_a_rating = players_container.get_player(player)
-    except ValueError:
-        player_a_rating = algorithm.rating_object()
-        players_container.add_player(player, player_a_rating)
-    return player_a_rating
