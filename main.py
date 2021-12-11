@@ -1,36 +1,42 @@
 from __future__ import print_function, unicode_literals
 import os
-from PyInquirer import prompt
 
+from config import supported_readers, supported_algorithms, supported_writers
 from calculator.calculator import Calculator
-from readers.csv_reader import CsvReader
-from readers.json_reader import JsonReader
 from util.result import ResultHandler
-from writers.csv_writer import CsvWriter
 
 
 def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
          result_win="1", result_loss="0", result_draw="0.5"):
     name, extension = os.path.splitext(file)
+
     # create reader
     columns_indexes = [player_a_index, player_b_index, result_a_index]
-    if extension == ".csv":
-        reader = CsvReader(file, columns_indexes=columns_indexes)
-    elif extension == ".json":
-        reader = JsonReader(file, columns_indexes=columns_indexes)
+    if extension[1:] in supported_readers:
+        r = supported_readers[extension[1:]]
+        exec(f"from {r['path']} import {r['class']}")
+        reader = eval(r["class"])(file, columns_indexes)
     else:
-        print("unsupported file format")
+        print("Unsupported file format")
         return
     # Choose algorithm
-    if algorithm_name == 'elo':
-        from algorithms.elo.elo_rating_algorithm import ELORatingAlgorithm
-        algorithm = ELORatingAlgorithm()
+    if algorithm_name in supported_algorithms:
+        a = supported_algorithms[algorithm_name]
+        exec(f"from {a['path']} import {a['class']}")
+        algorithm = eval(a["class"])()
     else:
-        algorithm = None
+        print("Algorithm not supported")
+        return
 
     # create writer
-    writer = CsvWriter(name + "_" + algorithm_name + "." + output_format)
+    if output_format in supported_writers:
+        w = supported_writers[output_format]
+        exec(f"from {w['path']} import {w['class']}")
+        writer = eval(w["class"])(name + "_" + algorithm_name + "." + output_format)
+    else:
+        print("Output format not supported")
+        return
 
     # create result handler to handle results according to the user specifications
     result_handler = ResultHandler(result_win, result_loss, result_draw)
@@ -40,6 +46,8 @@ def main(file, player_a_index, player_b_index, result_a_index,
     print("Computing...")
     calculator.calculate()
     print("Done!")
+
+
 if __name__ == "__main__":
     questions = [
         {
