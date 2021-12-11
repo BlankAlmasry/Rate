@@ -1,21 +1,28 @@
+import json
+
 from readers.reader import Reader
 
 
 class JsonReader(Reader):
     def __init__(self, file_name, columns_indexes: list):
         super().__init__(file_name, columns_indexes)
+        data = json.load(self.file)
+        self._keys = list(data[0].keys())
+        self._reader = (i for i in data)
+        self.requested_columns = [self._keys[int(i)] for i in self.columns_indexes]
 
     def next_record(self):
-        pass
+        return next(self)
 
     def __next__(self):
-        pass
+        raw = next(self._reader)
+        return [raw[i] for i in self.requested_columns]
 
     def __iter__(self):
-        pass
+        return self._reader
 
     def keys(self) -> list:
-        pass
+        return self._keys
 
     def close(self):
-        pass
+        self.file.close()
