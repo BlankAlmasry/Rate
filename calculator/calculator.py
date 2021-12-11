@@ -2,16 +2,13 @@ from algorithms.rating_algorithm import RatingAlgorithmInterface
 from containers.players_container import PlayersContainer
 from readers.reader import Reader
 from writers.writer import Writer
-
+from util.result import Result
 
 
 def compute(reader: Reader,
             writer: Writer,
-
             algorithm: RatingAlgorithmInterface,
-            result_win,
-            result_loss,
-            result_draw):
+            result_handler: Result):
     print("Computing...")
     players_container = PlayersContainer()
     while True:
@@ -24,10 +21,7 @@ def compute(reader: Reader,
             p1 = find_or_create_player(algorithm, player1, players_container)
             p2 = find_or_create_player(algorithm, player2, players_container)
             try:
-                result = decide_match_result_according_to_user_specification(literal_result,
-                                                                             result_win,
-                                                                             result_loss,
-                                                                             result_draw)
+                result = result_handler.get_result_from_string(literal_result)
             except ValueError as error_message:
                 print(error_message)
                 continue
@@ -68,14 +62,3 @@ def find_or_create_player(algorithm, player, players_container):
         player_a_rating = algorithm.rating_object()
         players_container.add_player(player, player_a_rating)
     return player_a_rating
-
-
-def decide_match_result_according_to_user_specification(result, result_win, result_loss, result_draw):
-    if result.casefold() == result_win.casefold():
-        return 1
-    elif result.casefold() == result_loss.casefold():
-        return 0
-    elif result.casefold() == result_draw.casefold():
-        return 0.5
-    else:
-        raise ValueError(f"unsupported result [{result}], expected [{result_win}], [{result_loss}] or [{result_draw}]")

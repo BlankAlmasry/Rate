@@ -5,6 +5,7 @@ from PyInquirer import prompt
 from calculator.calculator import compute
 from readers.csv_reader import CsvReader
 from readers.json_reader import JsonReader
+from util.result import ResultHandler
 from writers.csv_writer import CsvWriter
 
 
@@ -31,7 +32,9 @@ def main(file, player_a_index, player_b_index, result_a_index,
     writer = CsvWriter(name + "_" + algorithm_name + "." + output_format)
 
     # start calculation
-    compute(reader, writer, algorithm, result_win, result_loss, result_draw)
+    result = ResultHandler(result_win, result_loss, result_draw)
+
+    compute(reader, writer, algorithm, result)
 
 
 if __name__ == "__main__":
