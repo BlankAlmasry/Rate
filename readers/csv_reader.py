@@ -9,6 +9,9 @@ class CsvReader(Reader):
         self._reader = csv.reader(self.file)
         self._keys = next(self._reader)
 
+    def next_record(self):
+        return next(self)
+
     def __next__(self):
         raw = next(self._reader)
         return list(raw[int(field_index)] for field_index in self.columns_indexes)

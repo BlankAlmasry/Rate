@@ -9,6 +9,9 @@ class Reader:
         self.file = open(file_name, 'r', encoding='utf-8')
         self.columns_indexes = columns_indexes
 
+    @abc.abstractmethod
+    def next_record(self):
+        pass
 
     @abc.abstractmethod
     def __next__(self):

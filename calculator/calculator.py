@@ -14,7 +14,7 @@ def compute(reader: Reader,
     while True:
         try:
             # read next line if exists
-            player1, player2, result_for_player1 = next(reader)
+            player1, player2, result_for_player1 = reader.next_record()
 
             # get player ratings and decide match result according to user specification
             p1, p2 = players_container.find_or_add_players([
