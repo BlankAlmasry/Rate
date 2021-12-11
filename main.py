@@ -8,25 +8,30 @@ from readers.json_reader import JsonReader
 from writers.csv_writer import CsvWriter
 
 
-def main(file, player_a, player_b, result_a,
+def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
          result_win="1", result_loss="0", result_draw="0.5"):
     name, extension = os.path.splitext(file)
+    # create reader
+    columns_indexes = [player_a_index, player_b_index, result_a_index]
     if extension == ".csv":
-        reader = CsvReader(file)
+        reader = CsvReader(file, columns_indexes=columns_indexes)
     elif extension == ".json":
-        reader = JsonReader(file)
+        reader = JsonReader(file, columns_indexes=columns_indexes)
     else:
         print("unsupported file format")
         return
+    # Choose algorithm
     if algorithm_name == 'elo':
         from algorithms.elo.elo_rating_algorithm import ELORatingAlgorithm
         algorithm = ELORatingAlgorithm()
     else:
         algorithm = None
+    # create writer
     writer = CsvWriter(name + "_" + algorithm_name + "." + output_format)
 
-    compute(reader, writer, player_a, player_b, result_a, algorithm, result_win, result_loss, result_draw)
+    # start calculation
+    compute(reader, writer, algorithm, result_win, result_loss, result_draw)
 
 
 if __name__ == "__main__":
@@ -38,18 +43,18 @@ if __name__ == "__main__":
         },
         {
             'type': 'input',
-            'name': 'player_a',
-            'message': 'First Player Key: (column header or key, pick a unique identifier for each player)',
+            'name': 'player_a_index',
+            'message': 'First Player Key: (assuming first column is 0, second 1, etc.)',
         },
         {
             'type': 'input',
-            'name': 'player_b',
-            'message': 'Second Player Key: (column header or key, pick a unique identifier for each player)',
+            'name': 'player_b_index',
+            'message': 'Second Player Key: (assuming first column is 0, second 1, etc.)',
         },
         {
             'type': 'input',
-            'name': 'result_a',
-            'message': 'Result for player A: (column header or key)',
+            'name': 'result_a_index',
+            'message': 'Result for player A: (assuming first column is 0, second 1, etc.)',
         },
         {
             'type': 'list',
@@ -79,7 +84,19 @@ if __name__ == "__main__":
             'message': 'Result for a draw:(how would a win is typed in the result column)',
         },
     ]
+    # example answers
+    answers = {
+        'file': 'fights.csv',
+        'player_a_index': '0',
+        'player_b_index': '1',
+        'result_a_index': '2',
+        'algorithm_name': 'elo',
+        'output_format': 'csv',
+        'result_win': 'Win',
+        'result_loss': 'loss',
+        'result_draw': 'Draw',
 
-    answers = prompt(questions)
+    }
+    # answers = prompt(questions)
     main(**answers)
     print("Done")

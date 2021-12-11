@@ -4,13 +4,14 @@ from readers.reader import Reader
 
 
 class CsvReader(Reader):
-    def __init__(self, file_name, columns: list = None):
-        super().__init__(file_name, columns)
+    def __init__(self, file_name, columns_indexes: list):
+        super().__init__(file_name, columns_indexes)
         self._reader = csv.reader(self.file)
         self._keys = next(self._reader)
 
     def __next__(self):
-        return next(self._reader)
+        raw = next(self._reader)
+        return list(raw[int(field_index)] for field_index in self.columns_indexes)
 
     def __iter__(self):
         return self._reader

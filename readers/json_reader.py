@@ -2,8 +2,8 @@ from readers.reader import Reader
 
 
 class JsonReader(Reader):
-    def __init__(self, file_name):
-        super().__init__(file_name)
+    def __init__(self, file_name, columns_indexes: list):
+        super().__init__(file_name, columns_indexes)
 
     def __next__(self):
         pass

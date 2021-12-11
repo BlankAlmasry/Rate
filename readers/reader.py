@@ -4,13 +4,11 @@ import abc
 class Reader:
     _extension = None
 
-    def __init__(self, file_name, columns: list = None):
+    def __init__(self, file_name, columns_indexes: list):
         self.file_name = file_name
         self.file = open(file_name, 'r', encoding='utf-8')
-        if columns is not None:
-            self.columns = columns
-        else:
-            self.columns = self.keys()
+        self.columns_indexes = columns_indexes
+
 
     @abc.abstractmethod
     def __next__(self):
