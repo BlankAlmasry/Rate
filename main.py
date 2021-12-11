@@ -2,7 +2,7 @@ from __future__ import print_function, unicode_literals
 import os
 from PyInquirer import prompt
 
-from calculator.calculator import compute
+from calculator.calculator import Calculator
 from readers.csv_reader import CsvReader
 from readers.json_reader import JsonReader
 from util.result import ResultHandler
@@ -36,9 +36,10 @@ def main(file, player_a_index, player_b_index, result_a_index,
     result_handler = ResultHandler(result_win, result_loss, result_draw)
 
     # start calculation
-    compute(reader, writer, algorithm, result_handler)
-
-
+    calculator = Calculator(reader, writer, algorithm, result_handler)
+    print("Computing...")
+    calculator.calculate()
+    print("Done!")
 if __name__ == "__main__":
     questions = [
         {

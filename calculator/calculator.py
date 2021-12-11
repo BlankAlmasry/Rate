@@ -5,45 +5,48 @@ from writers.writer import Writer
 from util.result import ResultHandler
 
 
-def compute(reader: Reader,
-            writer: Writer,
-            algorithm: RatingAlgorithmInterface,
-            result_handler: ResultHandler):
-    print("Computing...")
-    players_container = PlayersContainer()
-    while True:
-        try:
-            # read next line if exists
-            player1, player2, result_for_player1 = reader.next_record()
+class Calculator:
+    def __init__(self, reader: Reader, writer: Writer, algorithm: RatingAlgorithmInterface,
+                 result_handler: ResultHandler):
+        self.reader = reader
+        self.writer = writer
+        self.algorithm = algorithm
+        self.result_handler = result_handler
+        self.players_container = PlayersContainer()
 
-            # get player ratings and decide match result according to user specification
-            p1, p2 = players_container.find_or_add_players([
-                [player1, algorithm.rating_object()],
-                [player2, algorithm.rating_object()]
-            ])
-
-            # get result in terms of 1, 0 or 0.5, if text is not recognized, skip it
+    def calculate(self):
+        while True:
             try:
-                result = result_handler.get_result_from_string(result_for_player1)
-            except ValueError as error_message:
-                print(error_message)
-                continue
+                # read next line if exists
+                player1, player2, result_for_player1 = self.reader.next_record()
 
-            # compute new ratings
-            p1_updated, p2_updated = algorithm.compute_match(p1, p2, result)
+                # get player ratings from container
+                p1, p2 = self.players_container.find_or_add_players([
+                    [player1, self.algorithm.rating_object()],
+                    [player2, self.algorithm.rating_object()]
+                ])
 
-            # update players container
-            players_container.update_players([[player1, p1_updated], [player2, p2_updated]])
+                # get result in terms of 1, 0 or 0.5, if text is not recognized, skip it
+                try:
+                    result = self.result_handler.get_result_from_string(result_for_player1)
+                except ValueError as error_message:
+                    print(error_message)
+                    continue
 
-            # write new ratings
-            writer.write([
-                [player1, str(p1_updated.rating)],
-                [player2, str(p2_updated.rating)],
-            ])
-        # if no more lines to read, break, empty the memory, close the files and exit
-        except StopIteration:
-            del players_container
-            reader.close()
-            writer.close()
-            break
-    print("Done")
+                # compute new ratings
+                p1_updated, p2_updated = self.algorithm.compute_match(p1, p2, result)
+
+                # update players container
+                self.players_container.update_players([[player1, p1_updated], [player2, p2_updated]])
+
+                # write new ratings
+                self.writer.write([
+                    [player1, str(p1_updated.rating)],
+                    [player2, str(p2_updated.rating)],
+                ])
+            # if no more lines to read, break, empty the memory, close the files and exit
+            except StopIteration:
+                del self.players_container
+                self.reader.close()
+                self.writer.close()
+                break
