@@ -37,7 +37,8 @@ class GUI:
                 'type': 'list',
                 'name': 'algorithm_name',
                 'message': 'Algorithm you want to use to rate the matches:',
-                'choices': supported_algorithms,
+                'choices': ['all'] + list(supported_algorithms.keys()),
+
             },
             {
                 'type': 'list',

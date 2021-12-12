@@ -24,8 +24,17 @@ def main(file, player_a_index, player_b_index, result_a_index,
         print("Unsupported file format")
         return
 
-    # Choose algorithm
-    if algorithm_name in algorithms:
+    # chose all algorithms
+    if algorithm_name == "all":
+        # recursively call main with all algorithms
+        for algorithm in algorithms:
+            main(file, player_a_index, player_b_index, result_a_index,
+                 algorithm, output_format,
+                 result_win, result_loss, result_draw,
+                 algorithms, readers, writers)
+        return
+    # Choose a single algorithm
+    elif algorithm_name in algorithms:
         a = algorithms[algorithm_name]
         exec(f"from {a['path']} import {a['class']}")
         algorithm = eval(a["class"])()
@@ -53,17 +62,17 @@ def main(file, player_a_index, player_b_index, result_a_index,
 
 if __name__ == "__main__":
     # example answers
-    answers = {
-        'file': 'fights.csv',
-        'player_a_index': '0',
-        'player_b_index': '1',
-        'result_a_index': '2',
-        'algorithm_name': 'trueskill',
-        'output_format': 'csv',
-        'result_win': 'Win',
-        'result_loss': 'loss',
-        'result_draw': 'Draw',
-    }
+    # answers = {
+    #     'file': 'fights.csv',
+    #     'player_a_index': '0',
+    #     'player_b_index': '1',
+    #     'result_a_index': '2',
+    #     'algorithm_name': 'all',
+    #     'output_format': 'json',
+    #     'result_win': 'Win',
+    #     'result_loss': 'loss',
+    #     'result_draw': 'Draw',
+    # }
 
     with open('config.json', 'r') as config:
         config = json.load(config)
@@ -71,7 +80,7 @@ if __name__ == "__main__":
         supported_readers = config["supported_readers"]
         supported_writers = config["supported_writers"]
 
-    # answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
+    answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
     print("Computing...")
     main(algorithms=supported_algorithms, readers=supported_readers, writers=supported_writers, **answers)
     print("Done")
