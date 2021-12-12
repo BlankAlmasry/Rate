@@ -23,6 +23,10 @@
     "elo": {
       "path": "algorithms.elo.elo_rating_algorithm",
       "class": "ELORatingAlgorithm"
+    },
+    "glicko-2": {
+      "path": "algorithms.glicko2.glicko2_rating_algorithm",
+      "class": "Glicko2RatingAlgorithm"
     }
   }
 }
