@@ -35,6 +35,10 @@
     "ecf": {
       "path": "algorithms.ecf.ecf_rating_algorithm",
       "class": "ECFRatingAlgorithm"
+    },
+    "dwz": {
+      "path": "algorithms.dwz.dwz_rating_algorithm",
+      "class": "DWZRatingAlgorithm"
     }
   }
 }
