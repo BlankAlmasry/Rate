@@ -13,9 +13,11 @@ class CsvWriter(Writer):
         # for csv file, we need to write the keys first as the first row
         self._writer.writerow(keys)
 
-    def write(self, data: list):
-        for row in data:
-            self._writer.writerow(row)
+    def write_record(self, line: list):
+        self._writer.writerow(line)
+
+    def write(self, data):
+        self.write_record(data)
 
     def write_header(self, header: list):
         self._writer.writerow(','.join(header) + '\n')

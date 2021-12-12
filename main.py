@@ -53,21 +53,19 @@ def main(file, player_a_index, player_b_index, result_a_index,
 
     # start calculation
     calculator = Calculator(reader, writer, algorithm, result_handler)
-    print("Computing...")
     calculator.calculate()
-    print("Done!")
     del calculator
 
 
 if __name__ == "__main__":
     # example answers
     # answers = {
-    #     'file': 'fights.csv',
+    #     'file': 'fights.json',
     #     'player_a_index': '0',
     #     'player_b_index': '1',
     #     'result_a_index': '2',
     #     'algorithm_name': 'elo',
-    #     'output_format': 'csv',
+    #     'output_format': 'json',
     #     'result_win': 'Win',
     #     'result_loss': 'loss',
     #     'result_draw': 'Draw',
@@ -75,5 +73,6 @@ if __name__ == "__main__":
     # }
 
     answers = GUI.display()
+    print("Computing...")
     main(**answers)
     print("Done")

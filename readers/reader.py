@@ -27,3 +27,6 @@ class Reader:
 
     def close(self):
         self.file.close()
+
+    def __del__(self):
+        self.close()

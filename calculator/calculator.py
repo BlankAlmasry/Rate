@@ -40,7 +40,7 @@ class Calculator:
                 self.players_container.update_players([[player1, p1_updated], [player2, p2_updated]])
 
                 # write new ratings
-                self.writer.write([
+                self.writer.write_records([
                     [player1, str(p1_updated.rating)],
                     [player2, str(p2_updated.rating)],
                 ])
