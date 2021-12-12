@@ -9,7 +9,7 @@ class GUI:
             {
                 'type': 'input',
                 'name': 'file',
-                'message': 'Path to file with matches (csv or json):',
+                'message': f'Path to file with matches ({", ".join(supported_readers)}):',
             },
             {
                 'type': 'input',
@@ -30,13 +30,13 @@ class GUI:
                 'type': 'list',
                 'name': 'algorithm_name',
                 'message': 'Algorithm you want to use to rate the matches:',
-                'choices': ['elo', 'glicko-1'],
+                'choices': supported_algorithms
             },
             {
                 'type': 'list',
                 'name': 'output_format',
                 'message': 'Output format:',
-                'choices': ['csv', 'json'],
+                'choices': supported_writers,
             },
             {
                 'type': 'input',
