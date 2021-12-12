@@ -10,20 +10,14 @@ from util.result_handler import ResultHandler
 
 def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
-         result_win="1", result_loss="0", result_draw="0.5"):
+         result_win, result_loss, result_draw,
+         algorithms, readers, writers):
     name, extension = os.path.splitext(file)
-
-    # fetch config
-    with open('config.json', 'r') as config:
-        config = json.load(config)
-        supported_algorithms = config["supported_algorithms"]
-        supported_readers = config["supported_readers"]
-        supported_writers = config["supported_writers"]
 
     # create reader
     columns_indexes = [player_a_index, player_b_index, result_a_index]
-    if extension[1:] in supported_readers:
-        r = supported_readers[extension[1:]]
+    if extension[1:] in readers:
+        r = readers[extension[1:]]
         exec(f"from {r['path']} import {r['class']}")
         reader = eval(r["class"])(file, columns_indexes)
     else:
@@ -31,8 +25,8 @@ def main(file, player_a_index, player_b_index, result_a_index,
         return
 
     # Choose algorithm
-    if algorithm_name in supported_algorithms:
-        a = supported_algorithms[algorithm_name]
+    if algorithm_name in algorithms:
+        a = algorithms[algorithm_name]
         exec(f"from {a['path']} import {a['class']}")
         algorithm = eval(a["class"])()
     else:
@@ -40,8 +34,8 @@ def main(file, player_a_index, player_b_index, result_a_index,
         return
 
     # create writer
-    if output_format in supported_writers:
-        w = supported_writers[output_format]
+    if output_format in writers:
+        w = writers[output_format]
         exec(f"from {w['path']} import {w['class']}")
         writer = eval(w["class"])(name + "_" + algorithm_name + "." + output_format, keys=["name", "rating"])
     else:
@@ -71,7 +65,13 @@ if __name__ == "__main__":
     #     'result_draw': 'Draw',
     # }
 
-    answers = GUI.display()
+    with open('config.json', 'r') as config:
+        config = json.load(config)
+        supported_algorithms = config["supported_algorithms"]
+        supported_readers = config["supported_readers"]
+        supported_writers = config["supported_writers"]
+
+    answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
     print("Computing...")
-    main(**answers)
+    main(algorithms=supported_algorithms, readers=supported_readers, writers=supported_writers, **answers)
     print("Done")
