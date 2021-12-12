@@ -5,7 +5,7 @@ import os
 
 from calculator.calculator import Calculator
 from gui.gui import GUI
-from util.result import ResultHandler
+from util.result_handler import ResultHandler
 
 
 def main(file, player_a_index, player_b_index, result_a_index,
@@ -65,11 +65,10 @@ if __name__ == "__main__":
     #     'player_b_index': '1',
     #     'result_a_index': '2',
     #     'algorithm_name': 'elo',
-    #     'output_format': 'json',
+    #     'output_format': 'csv',
     #     'result_win': 'Win',
     #     'result_loss': 'loss',
     #     'result_draw': 'Draw',
-    #
     # }
 
     answers = GUI.display()
