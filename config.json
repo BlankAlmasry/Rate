@@ -39,6 +39,10 @@
     "dwz": {
       "path": "algorithms.dwz.dwz_rating_algorithm",
       "class": "DWZRatingAlgorithm"
+    },
+    "trueskill": {
+      "path": "algorithms.trueskill.trueskill_rating_algorithm",
+      "class": "TrueSkillRatingAlgorithm"
     }
   }
 }
