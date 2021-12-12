@@ -53,17 +53,17 @@ def main(file, player_a_index, player_b_index, result_a_index,
 
 if __name__ == "__main__":
     # example answers
-    # answers = {
-    #     'file': 'fights.json',
-    #     'player_a_index': '0',
-    #     'player_b_index': '1',
-    #     'result_a_index': '2',
-    #     'algorithm_name': 'elo',
-    #     'output_format': 'csv',
-    #     'result_win': 'Win',
-    #     'result_loss': 'loss',
-    #     'result_draw': 'Draw',
-    # }
+    answers = {
+        'file': 'fights.csv',
+        'player_a_index': '0',
+        'player_b_index': '1',
+        'result_a_index': '2',
+        'algorithm_name': 'elo',
+        'output_format': 'csv',
+        'result_win': 'Win',
+        'result_loss': 'loss',
+        'result_draw': 'Draw',
+    }
 
     with open('config.json', 'r') as config:
         config = json.load(config)
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         supported_readers = config["supported_readers"]
         supported_writers = config["supported_writers"]
 
-    answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
+    # answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
     print("Computing...")
     main(algorithms=supported_algorithms, readers=supported_readers, writers=supported_writers, **answers)
     print("Done")

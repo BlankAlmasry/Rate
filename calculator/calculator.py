@@ -45,9 +45,11 @@ class Calculator:
                     [player2, str(p2_updated.rating)],
                 ])
             except StopIteration:
+                self.result_handler.print_stats()
                 break
 
     def __del__(self):
         del self.reader
         del self.writer
         del self.players_container
+        del self.result_handler
