@@ -14,11 +14,11 @@ def main(file, player_a_index, player_b_index, result_a_index,
     name, extension = os.path.splitext(file)
 
     # fetch config
-    with open('config.json', 'r') as f:
-        data = json.load(f)
-        supported_algorithms = data["supported_algorithms"]
-        supported_readers = data["supported_readers"]
-        supported_writers = data["supported_writers"]
+    with open('config.json', 'r') as config:
+        config = json.load(config)
+        supported_algorithms = config["supported_algorithms"]
+        supported_readers = config["supported_readers"]
+        supported_writers = config["supported_writers"]
 
     # create reader
     columns_indexes = [player_a_index, player_b_index, result_a_index]
@@ -43,7 +43,7 @@ def main(file, player_a_index, player_b_index, result_a_index,
     if output_format in supported_writers:
         w = supported_writers[output_format]
         exec(f"from {w['path']} import {w['class']}")
-        writer = eval(w["class"])(name + "_" + algorithm_name + "." + output_format)
+        writer = eval(w["class"])(name + "_" + algorithm_name + "." + output_format, keys=["name", "rating"])
     else:
         print("Output format not supported")
         return
@@ -56,6 +56,7 @@ def main(file, player_a_index, player_b_index, result_a_index,
     print("Computing...")
     calculator.calculate()
     print("Done!")
+    del calculator
 
 
 if __name__ == "__main__":
@@ -72,6 +73,7 @@ if __name__ == "__main__":
     #     'result_draw': 'Draw',
     #
     # }
+
     answers = GUI.display()
     main(**answers)
     print("Done")

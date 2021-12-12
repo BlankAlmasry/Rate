@@ -44,9 +44,10 @@ class Calculator:
                     [player1, str(p1_updated.rating)],
                     [player2, str(p2_updated.rating)],
                 ])
-            # if no more lines to read, break, empty the memory, close the files and exit
             except StopIteration:
-                del self.players_container
-                self.reader.close()
-                self.writer.close()
                 break
+
+    def __del__(self):
+        del self.reader
+        del self.writer
+        del self.players_container
