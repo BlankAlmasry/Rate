@@ -2,7 +2,7 @@ from algorithms.rating_algorithm import RatingAlgorithmInterface
 from containers.players_container import PlayersContainer
 from readers.reader import Reader
 from writers.writer import Writer
-from util.result_handler import ResultHandler
+from utils.result_handler import ResultHandler
 
 
 class Calculator:
