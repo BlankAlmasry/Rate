@@ -31,6 +31,10 @@
     "glicko-1": {
       "path": "algorithms.glicko1.glicko1_rating_algorithm",
       "class": "Glicko1RatingAlgorithm"
+    },
+    "ecf": {
+      "path": "algorithms.ecf.ecf_rating_algorithm",
+      "class": "ECFRatingAlgorithm"
     }
   }
 }

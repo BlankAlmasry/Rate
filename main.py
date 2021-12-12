@@ -58,7 +58,7 @@ if __name__ == "__main__":
         'player_a_index': '0',
         'player_b_index': '1',
         'result_a_index': '2',
-        'algorithm_name': 'glicko-1',
+        'algorithm_name': 'ecf',
         'output_format': 'csv',
         'result_win': 'Win',
         'result_loss': 'loss',
