@@ -27,6 +27,10 @@
     "glicko-2": {
       "path": "algorithms.glicko2.glicko2_rating_algorithm",
       "class": "Glicko2RatingAlgorithm"
+    },
+    "glicko-1": {
+      "path": "algorithms.glicko1.glicko1_rating_algorithm",
+      "class": "Glicko1RatingAlgorithm"
     }
   }
 }
