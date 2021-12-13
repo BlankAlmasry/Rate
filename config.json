@@ -3,16 +3,10 @@
     "json",
     "csv"
   ],
-  "supported_writers": {
-    "csv": {
-      "path": "writers.csv_writer",
-      "class": "CsvWriter"
-    },
-    "json": {
-      "path": "writers.json_writer",
-      "class": "JsonWriter"
-    }
-  },
+  "supported_writers": [
+    "json",
+    "csv"
+  ],
   "supported_algorithms": [
     "elo",
     "glicko-1",

@@ -7,13 +7,15 @@ from calculator.calculator import Calculator
 from gui.gui import GUI
 from readers.reader_factory import ReaderFactory
 from utils.result_handler import ResultHandler
+from writers.writer_factory import WriterFactory
 
 
 def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
          result_win, result_loss, result_draw,
          algorithms, readers, writers):
-    # chose all algorithms
+
+    # check if
     if algorithm_name == "all":
         # recursively call main with all algorithms
         for algo in algorithms:
@@ -30,13 +32,8 @@ def main(file, player_a_index, player_b_index, result_a_index,
     reader = ReaderFactory.create_reader(extension, file, columns_indexes)
 
     # create writer
-    if output_format in writers:
-        w = writers[output_format]
-        exec(f"from {w['path']} import {w['class']}")
-        writer = eval(w["class"])(name + "_" + algorithm_name + "." + output_format, keys=["name", "rating"])
-    else:
-        print("Output format not supported")
-        return
+    output_file_name = name + "_" + algorithm_name + "." + output_format
+    writer = WriterFactory.create_writer(output_file_name, headers=["name", "rating"])
 
     # create result handler to handle results according to the user specifications
     result_handler = ResultHandler(result_win, result_loss, result_draw)
@@ -55,7 +52,7 @@ if __name__ == "__main__":
         'player_b_index': '1',
         'result_a_index': '2',
         'algorithm_name': 'all',
-        'output_format': 'json',
+        'output_format': 'csv',
         'result_win': 'Win',
         'result_loss': 'loss',
         'result_draw': 'Draw',
