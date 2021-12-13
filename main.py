@@ -12,6 +12,16 @@ def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
          result_win, result_loss, result_draw,
          algorithms, readers, writers):
+    # chose all algorithms
+    if algorithm_name == "all":
+        # recursively call main with all algorithms
+        for algo in algorithms:
+            main(file, player_a_index, player_b_index, result_a_index,
+                 algo, output_format,
+                 result_win, result_loss, result_draw,
+                 algorithms, readers, writers)
+        return
+
     name, extension = os.path.splitext(file)
 
     # create reader
@@ -22,24 +32,6 @@ def main(file, player_a_index, player_b_index, result_a_index,
         reader = eval(r["class"])(file, columns_indexes)
     else:
         print("Unsupported file format")
-        return
-
-    # chose all algorithms
-    if algorithm_name == "all":
-        # recursively call main with all algorithms
-        for algorithm in algorithms:
-            main(file, player_a_index, player_b_index, result_a_index,
-                 algorithm, output_format,
-                 result_win, result_loss, result_draw,
-                 algorithms, readers, writers)
-        return
-    # Choose a single algorithm
-    elif algorithm_name in algorithms:
-        a = algorithms[algorithm_name]
-        exec(f"from {a['path']} import {a['class']}")
-        algorithm = eval(a["class"])()
-    else:
-        print("Algorithm not supported")
         return
 
     # create writer
@@ -55,7 +47,7 @@ def main(file, player_a_index, player_b_index, result_a_index,
     result_handler = ResultHandler(result_win, result_loss, result_draw)
 
     # start calculation
-    calculator = Calculator(reader, writer, algorithm, result_handler)
+    calculator = Calculator(reader, writer, algorithm_name, result_handler)
     calculator.calculate()
     del calculator
 

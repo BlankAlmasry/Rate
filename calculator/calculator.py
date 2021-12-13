@@ -1,4 +1,5 @@
-from algorithms.rating_algorithm import RatingAlgorithmInterface
+from algorithms.match import Match
+from algorithms.player_factory import PlayerFactory
 from containers.players_container import PlayersContainer
 from readers.reader import Reader
 from writers.writer import Writer
@@ -6,11 +7,11 @@ from utils.result_handler import ResultHandler
 
 
 class Calculator:
-    def __init__(self, reader: Reader, writer: Writer, algorithm: RatingAlgorithmInterface,
+    def __init__(self, reader: Reader, writer: Writer, algorithm_name: str,
                  result_handler: ResultHandler):
         self.reader = reader
         self.writer = writer
-        self.algorithm = algorithm
+        self.algorithm_name = algorithm_name
         self.result_handler = result_handler
         self.players_container = PlayersContainer()
 
@@ -22,8 +23,8 @@ class Calculator:
 
                 # get player ratings from container
                 p1, p2 = self.players_container.find_or_add_players([
-                    [player1, self.algorithm.rating_object()],
-                    [player2, self.algorithm.rating_object()]
+                    [player1, PlayerFactory.create_player(self.algorithm_name)],
+                    [player2, PlayerFactory.create_player(self.algorithm_name)]
                 ])
 
                 # get result in terms of 1, 0 or 0.5, if text is not recognized, skip it
@@ -34,7 +35,7 @@ class Calculator:
                     continue
 
                 # compute new ratings
-                p1_updated, p2_updated = self.algorithm.compute_match(p1, p2, result)
+                p1_updated, p2_updated = Match.create(p1, p2, result)
 
                 # update players container
                 self.players_container.update_players([[player1, p1_updated], [player2, p2_updated]])
