@@ -1,6 +1,6 @@
 from elote import EloCompetitor
 
-from algorithms.player import Player
+from players.player import Player
 
 
 class EloPlayer(Player):

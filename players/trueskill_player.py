@@ -1,6 +1,6 @@
 from trueskill import Rating, rate_1vs1
 
-from algorithms.player import Player
+from players.player import Player
 
 
 class TrueSkillPlayer(Player):

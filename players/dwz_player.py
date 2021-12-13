@@ -1,6 +1,6 @@
 from elote import DWZCompetitor
 
-from algorithms.player import Player
+from players.player import Player
 
 
 class DWZPlayer(Player):
