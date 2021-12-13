@@ -5,6 +5,7 @@ import os
 
 from calculator.calculator import Calculator
 from gui.gui import GUI
+from readers.reader_factory import ReaderFactory
 from utils.result_handler import ResultHandler
 
 
@@ -26,13 +27,7 @@ def main(file, player_a_index, player_b_index, result_a_index,
 
     # create reader
     columns_indexes = [player_a_index, player_b_index, result_a_index]
-    if extension[1:] in readers:
-        r = readers[extension[1:]]
-        exec(f"from {r['path']} import {r['class']}")
-        reader = eval(r["class"])(file, columns_indexes)
-    else:
-        print("Unsupported file format")
-        return
+    reader = ReaderFactory.create_reader(extension, file, columns_indexes)
 
     # create writer
     if output_format in writers:
@@ -54,17 +49,17 @@ def main(file, player_a_index, player_b_index, result_a_index,
 
 if __name__ == "__main__":
     # example answers
-    # answers = {
-    #     'file': 'fights.csv',
-    #     'player_a_index': '0',
-    #     'player_b_index': '1',
-    #     'result_a_index': '2',
-    #     'algorithm_name': 'all',
-    #     'output_format': 'json',
-    #     'result_win': 'Win',
-    #     'result_loss': 'loss',
-    #     'result_draw': 'Draw',
-    # }
+    answers = {
+        'file': 'fights.json',
+        'player_a_index': '0',
+        'player_b_index': '1',
+        'result_a_index': '2',
+        'algorithm_name': 'all',
+        'output_format': 'json',
+        'result_win': 'Win',
+        'result_loss': 'loss',
+        'result_draw': 'Draw',
+    }
 
     with open('config.json', 'r') as config:
         config = json.load(config)
@@ -72,7 +67,7 @@ if __name__ == "__main__":
         supported_readers = config["supported_readers"]
         supported_writers = config["supported_writers"]
 
-    answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
+    # answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
     print("Computing...")
     main(algorithms=supported_algorithms, readers=supported_readers, writers=supported_writers, **answers)
     print("Done")

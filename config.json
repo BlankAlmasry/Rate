@@ -1,14 +1,8 @@
 {
-  "supported_readers": {
-    "csv": {
-      "path": "readers.csv_reader",
-      "class": "CsvReader"
-    },
-    "json": {
-      "path": "readers.json_reader",
-      "class": "JsonReader"
-    }
-  },
+  "supported_readers": [
+    "json",
+    "csv"
+  ],
   "supported_writers": {
     "csv": {
       "path": "writers.csv_writer",

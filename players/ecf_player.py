@@ -1,6 +1,6 @@
 from elote import ECFCompetitor
 
-from algorithms.player import Player
+from players.player import Player
 
 
 class ECFPlayer(Player):

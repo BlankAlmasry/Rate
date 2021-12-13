@@ -1,6 +1,6 @@
 from elote import GlickoCompetitor
 
-from algorithms.player import Player
+from players.player import Player
 
 
 class Glicko1Player(Player):
