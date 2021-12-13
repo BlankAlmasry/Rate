@@ -1,4 +1,4 @@
-from algorithms.player import Player
+from players.player import Player
 
 
 class Match:

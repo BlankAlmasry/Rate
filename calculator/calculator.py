@@ -1,5 +1,5 @@
 from match.match import Match
-from algorithms.player_factory import PlayerFactory
+from players.player_factory import PlayerFactory
 from containers.players_container import PlayersContainer
 from readers.reader import Reader
 from writers.writer import Writer
