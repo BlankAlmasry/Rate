@@ -1,4 +1,4 @@
-from algorithms.match import Match
+from match.match import Match
 from algorithms.player_factory import PlayerFactory
 from containers.players_container import PlayersContainer
 from readers.reader import Reader
