@@ -1,0 +1,4 @@
+elote==0.1.0
+glicko2==2.0.0
+PyInquirer==1.0.3
+trueskill==0.4.5
