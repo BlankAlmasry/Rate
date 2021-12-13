@@ -1,3 +1,5 @@
+from typing import Union
+
 from match.match import Match
 from players.player_factory import PlayerFactory
 from players.players_container import PlayersContainer
@@ -7,7 +9,7 @@ from utils.result_handler import ResultHandler
 
 
 class Calculator:
-    def __init__(self, reader: Reader, writer: Writer, algorithm_name: str,
+    def __init__(self, reader: Reader, writer: Writer, algorithm_name: Union[str, list],
                  result_handler: ResultHandler):
         self.reader = reader
         self.writer = writer

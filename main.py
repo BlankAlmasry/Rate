@@ -12,19 +12,7 @@ from writers.writer_factory import WriterFactory
 
 def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
-         result_win, result_loss, result_draw,
-         algorithms, readers, writers):
-
-    # check if
-    if algorithm_name == "all":
-        # recursively call main with all algorithms
-        for algo in algorithms:
-            main(file, player_a_index, player_b_index, result_a_index,
-                 algo, output_format,
-                 result_win, result_loss, result_draw,
-                 algorithms, readers, writers)
-        return
-
+         result_win, result_loss, result_draw):
     name, extension = os.path.splitext(file)
 
     # create reader
@@ -39,7 +27,10 @@ def main(file, player_a_index, player_b_index, result_a_index,
     result_handler = ResultHandler(result_win, result_loss, result_draw)
 
     # start calculation
-    calculator = Calculator(reader, writer, algorithm_name, result_handler)
+    calculator = Calculator(reader,
+                            writer,
+                            algorithm_name if algorithm_name != 'all' else supported_algorithms,
+                            result_handler)
     calculator.calculate()
     del calculator
 
@@ -65,6 +56,12 @@ if __name__ == "__main__":
         supported_writers = config["supported_writers"]
 
     # answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
-    print("Computing...")
-    main(algorithms=supported_algorithms, readers=supported_readers, writers=supported_writers, **answers)
+    if answers['algorithm_name'] == 'all':
+        for algorithm in supported_algorithms:
+            print(f"Computing {answers['algorithm_name']} ratings...")
+            answers["algorithm_name"] = algorithm
+            main(**answers)
+    else:
+        print(f"Computing {answers['algorithm_name']} ratings...")
+        main(**answers)
     print("Done")
