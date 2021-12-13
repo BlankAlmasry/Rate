@@ -19,30 +19,13 @@
       "class": "JsonWriter"
     }
   },
-  "supported_algorithms": {
-    "elo": {
-      "path": "algorithms.elo.elo_rating_algorithm",
-      "class": "ELORatingAlgorithm"
-    },
-    "glicko-2": {
-      "path": "algorithms.glicko2.glicko2_rating_algorithm",
-      "class": "Glicko2RatingAlgorithm"
-    },
-    "glicko-1": {
-      "path": "algorithms.glicko1.glicko1_rating_algorithm",
-      "class": "Glicko1RatingAlgorithm"
-    },
-    "ecf": {
-      "path": "algorithms.ecf.ecf_rating_algorithm",
-      "class": "ECFRatingAlgorithm"
-    },
-    "dwz": {
-      "path": "algorithms.dwz.dwz_rating_algorithm",
-      "class": "DWZRatingAlgorithm"
-    },
-    "trueskill": {
-      "path": "algorithms.trueskill.trueskill_rating_algorithm",
-      "class": "TrueSkillRatingAlgorithm"
-    }
-  }
+  "supported_algorithms": [
+    "elo",
+    "glicko-1",
+    "glicko-2",
+    "trueskill",
+    "trueskill",
+    "ecf",
+    "dwz"
+  ]
 }
