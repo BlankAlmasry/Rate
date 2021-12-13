@@ -1,6 +1,6 @@
 from match.match import Match
 from players.player_factory import PlayerFactory
-from containers.players_container import PlayersContainer
+from players.players_container import PlayersContainer
 from readers.reader import Reader
 from writers.writer import Writer
 from utils.result_handler import ResultHandler
