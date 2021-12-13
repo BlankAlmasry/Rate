@@ -3,25 +3,25 @@ from __future__ import print_function, unicode_literals
 import json
 import os
 
-from calculator.calculator import Calculator
-from gui.gui import GUI
-from readers.reader_factory import ReaderFactory
-from utils.result_handler import ResultHandler
-from writers.writer_factory import WriterFactory
+from calculator import Calculator
+from gui import GUI
+from readers import ReaderFactory
+from utils import ResultHandler
+from writers import WriterFactory
 
 
 def main(file, player_a_index, player_b_index, result_a_index,
          algorithm_name, output_format,
          result_win, result_loss, result_draw):
-    name, extension = os.path.splitext(file)
+    file_name, file_extension = os.path.splitext(file)
 
     # create reader
     columns_indexes = [player_a_index, player_b_index, result_a_index]
-    reader = ReaderFactory.create_reader(extension, file, columns_indexes)
+    reader = ReaderFactory.create_reader(file_extension, file, columns_indexes)
 
     # create writer
-    output_file_name = name + "_" + algorithm_name + "." + output_format
-    writer = WriterFactory.create_writer(output_file_name, headers=["name", "rating"])
+    output_file_name = file_name + "_" + algorithm_name + "." + output_format
+    writer = WriterFactory.create_writer(output_file_name, headers=["file_name", "rating"])
 
     # create result handler to handle results according to the user specifications
     result_handler = ResultHandler(result_win, result_loss, result_draw)

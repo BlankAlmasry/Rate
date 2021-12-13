@@ -10,6 +10,7 @@ class Writer(abc.ABC):
     @abc.abstractmethod
     def write(self, data):
         pass
+
     @abc.abstractmethod
     def write_record(self, writable):
         pass

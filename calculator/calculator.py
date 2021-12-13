@@ -1,11 +1,11 @@
 from typing import Union
 
-from match.match import Match
-from players.player_factory import PlayerFactory
-from players.players_container import PlayersContainer
-from readers.reader import Reader
-from writers.writer import Writer
-from utils.result_handler import ResultHandler
+from match import Match
+from players import PlayerFactory
+from players import PlayersContainer
+from readers import Reader
+from writers import Writer
+from utils import ResultHandler
 
 
 class Calculator:

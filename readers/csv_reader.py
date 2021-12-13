@@ -1,6 +1,6 @@
 import csv
 
-from readers.reader import Reader
+from readers import Reader
 
 
 class CsvReader(Reader):

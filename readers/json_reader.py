@@ -1,6 +1,6 @@
 import json
 
-from readers.reader import Reader
+from readers import Reader
 
 
 class JsonReader(Reader):
