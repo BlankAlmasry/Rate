@@ -3,3 +3,6 @@ fights*
 .idea
 __pycache__/
 *.pyc
+.mypy_cache/
+dist/
+.mypy_cache
