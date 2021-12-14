@@ -56,4 +56,4 @@ You might need to run it with `winpty` if you are on Windows.
 
 ## Contributing
 It still needs some work.
-Please feel free to open an is
+Please feel free to open an issue or pull request.
