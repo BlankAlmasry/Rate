@@ -6,6 +6,7 @@ readme = "readme.md"
 keywords = ["rate", "match", "rating", "elo", "glicko", "trueskill"]
 authors = ["blankalmasry <blankhussien@gmail.com>"]
 license = "GPL-3.0"
+exclude = ["examples"]
 
 [tool.poetry.dependencies]
 python = "^3.9"

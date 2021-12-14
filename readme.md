@@ -29,6 +29,7 @@ And you will get prompted with interactive options to select:
 | John    | Doe     | won     | Lost    | 12-14-2021 |
 | Doe     | John    | Draw    | Draw    | 12-15-2021 |
 | Sam     | John    | Lost    | won     | 12-16-2021 |
+#### examples of generated files in /examples
 ### Answers
 - File: matches.csv
 - First player key: player1
