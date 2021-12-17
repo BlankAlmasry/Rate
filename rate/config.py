@@ -5,7 +5,6 @@ supported_algorithms = [
     "glicko-1",
     "glicko-2",
     "trueskill",
-    "trueskill",
     "ecf",
     "dwz"
 ]
