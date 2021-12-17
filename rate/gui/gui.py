@@ -4,15 +4,8 @@ from PyInquirer import prompt
 class GUI:
 
     @staticmethod
-    def questions(supported_readers, supported_writers, supported_algorithms):
+    def questions(supported_writers, supported_algorithms):
         questions = [
-            {
-                'type': 'input',
-                'name': 'file',
-                'message': f'Path to file with matches ({", ".join(supported_readers)}):',
-                'validate': lambda value: value.strip().split('.')[-1] in supported_readers or
-                                          'Please enter a valid file path with a valid extension.'
-            },
             {
                 'type': 'input',
                 'name': 'player_a_index',
@@ -69,5 +62,5 @@ class GUI:
         return questions
 
     @staticmethod
-    def display(supported_readers, supported_writers, supported_algorithms):
-        return prompt(GUI.questions(supported_readers, supported_writers, supported_algorithms))
+    def display(supported_writers, supported_algorithms):
+        return prompt(GUI.questions(supported_writers, supported_algorithms))

@@ -1,6 +1,8 @@
 from __future__ import print_function, unicode_literals
 
 import os
+import sys
+from os.path import isfile
 
 from rate.calculator import Calculator
 from rate.gui import GUI
@@ -48,8 +50,20 @@ def init():
     #     'result_loss': 'loss',
     #     'result_draw': 'Draw',
     # }
+    # get  first arguments
+    try:
+        file = sys.argv[1:][0]
+    except IndexError:
+        print("Please provide a file name")
+        exit(1)
+    if not isfile(file):
+        print("File does not exist")
+        exit(1)
+    if file.split(".")[-1] not in supported_readers:
+        print(f"File format is not supported, please use one of the following: {supported_readers}")
+        exit(1)
 
-    answers = GUI.display(supported_readers, supported_writers, supported_algorithms)
+    answers = GUI.display(supported_writers, supported_algorithms)
     if answers['algorithm_name'] == 'all':
         for algorithm in supported_algorithms:
             print(f"Computing {answers['algorithm_name']} ratings...")
