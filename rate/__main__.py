@@ -1,3 +1,3 @@
-from rate.main import init
+from rate.main import main
 
-init()
+main()

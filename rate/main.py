@@ -12,9 +12,9 @@ from rate.writers import WriterFactory
 from rate.config import supported_algorithms, supported_writers, supported_readers
 
 
-def main(file, player_a_index, player_b_index, result_a_index,
-         algorithm_name, output_format,
-         result_win, result_loss, result_draw):
+def generate(file, player_a_index, player_b_index, result_a_index,
+             algorithm_name, output_format,
+             result_win, result_loss, result_draw):
     file_name, file_extension = os.path.splitext(file)
 
     # create reader
@@ -37,7 +37,7 @@ def main(file, player_a_index, player_b_index, result_a_index,
     del calculator
 
 
-def init():
+def main():
     # example answers
     # answers = {
     #     'file': 'fights.json',
@@ -50,7 +50,7 @@ def init():
     #     'result_loss': 'loss',
     #     'result_draw': 'Draw',
     # }
-    # get  first arguments
+
     try:
         file = sys.argv[1:][0]
     except IndexError:
@@ -68,12 +68,12 @@ def init():
         for algorithm in supported_algorithms:
             print(f"Computing {answers['algorithm_name']} ratings...")
             answers["algorithm_name"] = algorithm
-            main(**answers)
+            generate(**answers)
     else:
         print(f"Computing {answers['algorithm_name']} ratings...")
-        main(**answers)
+        generate(**answers)
     print("Done")
 
 
 if __name__ == '__main__':
-    init()
+    main()
