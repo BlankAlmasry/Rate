@@ -12,16 +12,13 @@ from rate.writers import WriterFactory
 from rate.config import supported_algorithms, supported_writers, supported_readers
 
 
-def generate(file, player_a_index, player_b_index, result_a_index,
+def generate(reader, player_a, player_b, result_a,
              algorithm_name, output_format,
              result_win, result_loss, result_draw):
-    file_name, file_extension = os.path.splitext(file)
-
-    # create reader
-    columns_indexes = [player_a_index, player_b_index, result_a_index]
-    reader = ReaderFactory.create_reader(file_extension, file, columns_indexes)
-
+    reader.readonly_keys = [player_a, player_b, result_a]
     # create writer
+    file = reader.file_name
+    file_name, _ = os.path.splitext(file)
     output_file_name = file_name + "_" + algorithm_name + "." + output_format
     writer = WriterFactory.create_writer(output_file_name, headers=["file_name", "rating"])
 
@@ -40,12 +37,11 @@ def generate(file, player_a_index, player_b_index, result_a_index,
 def main():
     # example answers
     # answers = {
-    #     'file': 'fights.json',
-    #     'player_a_index': '0',
-    #     'player_b_index': '1',
-    #     'result_a_index': '2',
+    #     'player_a': 'fighter1',
+    #     'player_b': 'fighter2',
+    #     'result_a': 'result1',
     #     'algorithm_name': 'all',
-    #     'output_format': 'csv',
+    #     'output_format': 'json',
     #     'result_win': 'Win',
     #     'result_loss': 'loss',
     #     'result_draw': 'Draw',
@@ -59,19 +55,24 @@ def main():
     if not isfile(file):
         print("File does not exist")
         exit(1)
-    if file.split(".")[-1] not in supported_readers:
+    if file.strip().split(".")[-1] not in supported_readers:
         print(f"File format is not supported, please use one of the following: {supported_readers}")
         exit(1)
 
-    answers = GUI.display(supported_writers, supported_algorithms)
+    # create reader
+    reader = ReaderFactory.create_reader(file)
+
+    answers = GUI.display(supported_writers, supported_algorithms, keys=reader.keys())
     if answers['algorithm_name'] == 'all':
         for algorithm in supported_algorithms:
             print(f"Computing {answers['algorithm_name']} ratings...")
             answers["algorithm_name"] = algorithm
-            generate(**answers)
+            generate(reader, **answers)
+            reader.reset()
+
     else:
         print(f"Computing {answers['algorithm_name']} ratings...")
-        generate(**answers)
+        generate(reader, **answers)
     print("Done")
 
 

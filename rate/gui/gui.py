@@ -4,25 +4,30 @@ from PyInquirer import prompt
 class GUI:
 
     @staticmethod
-    def questions(supported_writers, supported_algorithms):
+    def questions(supported_writers, supported_algorithms, keys):
         questions = [
             {
-                'type': 'input',
-                'name': 'player_a_index',
-                'message': 'First Player Key: (assuming first column is 0, second 1, etc.)',
-                'validate': lambda value: value.strip().isdigit() or 'Please enter a valid number.'
-            },
-            {
-                'type': 'input',
-                'name': 'player_b_index',
-                'message': 'Second Player Key: (assuming first column is 0, second 1, etc.)',
+                'type': 'list',
+                'name': 'player_a',
+                'message': 'First Player Key',
+                'choices': keys,
                 'validate': lambda value: value.strip().isdigit() or 'Please enter a valid number.'
 
             },
             {
-                'type': 'input',
-                'name': 'result_a_index',
-                'message': 'Result for player A: (assuming first column is 0, second 1, etc.)',
+                'type': 'list',
+                'name': 'player_b',
+                'message': 'Second Player Key:',
+                'choices': keys,
+
+                'validate': lambda value: value.strip().isdigit() or 'Please enter a valid number.'
+
+            },
+            {
+                'type': 'list',
+                'name': 'result_a',
+                'message': 'Result from the first player perspective:',
+                'choices': keys,
                 'validate': lambda value: value.strip().isdigit() or 'Please enter a valid number.'
 
             },
@@ -62,5 +67,5 @@ class GUI:
         return questions
 
     @staticmethod
-    def display(supported_writers, supported_algorithms):
-        return prompt(GUI.questions(supported_writers, supported_algorithms))
+    def display(supported_writers, supported_algorithms, keys):
+        return prompt(GUI.questions(supported_writers, supported_algorithms, keys))
