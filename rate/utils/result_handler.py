@@ -24,15 +24,26 @@ class ResultHandler:
             self._skipped_results.add(text)
             self._skipped_results_count += 1
             raise ValueError(
-                f"Invalid result value[{text}], supported values are [{self.win}, {self.lose}, {self.draw}]"
+                "Invalid result value[{}], supported values are [{}, {}, {}]".format(
+                    text, self.win, self.lose, self.draw
+                )
             )
 
     def print_stats(self):
-        print(f"Computed results: {{'{self.win}', '{self.lose}', '{self.draw}'}}")
-        print(f"Skipped unknown results: {self._skipped_results}")
-        print(f"Computed {self._computed_results_count}/{self._total} results")
-        print(f"Skipped {self._skipped_results_count}/{self._total} results")
-        print(f"Total: {self._total}")
+        print(
+            "Computed results: {}/{} ({:.2f}%)".format(
+                self._computed_results_count,
+                self._total,
+                self._computed_results_count / self._total * 100,
+            )
+        )
+        print(
+            "Skipped results: {}/{} ({:.2f}%)".format(
+                self._skipped_results_count,
+                self._total,
+                self._skipped_results_count / self._total * 100,
+            )
+        )
 
     def __del__(self):
         self._total = 0

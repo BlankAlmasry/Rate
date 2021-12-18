@@ -20,8 +20,6 @@ class JsonReader(Reader):
         # return list of values for readonly keys from dict raw
         return [raw[key] for key in self.readonly_keys]
 
-
-
     def __iter__(self):
         return self._reader
 

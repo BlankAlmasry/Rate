@@ -56,7 +56,8 @@ def main():
         print("File does not exist")
         exit(1)
     if file.strip().split(".")[-1] not in supported_readers:
-        print(f"File format is not supported, please use one of the following: {supported_readers}")
+        # print the same without f strings
+        print("File format not supported. Supported formats are: " + ", ".join(supported_readers))
         exit(1)
 
     # create reader
@@ -65,13 +66,14 @@ def main():
     answers = GUI.display(supported_writers, supported_algorithms, keys=reader.keys())
     if answers['algorithm_name'] == 'all':
         for algorithm in supported_algorithms:
-            print(f"Computing {answers['algorithm_name']} ratings...")
+            # print with no f strings
+            print("Computing " + answers['algorithm_name'] + " ratings...")
             answers["algorithm_name"] = algorithm
             generate(reader, **answers)
             reader.reset()
 
     else:
-        print(f"Computing {answers['algorithm_name']} ratings...")
+        print("Computing " + answers['algorithm_name'] + " ratings...")
         generate(reader, **answers)
     print("Done")
 

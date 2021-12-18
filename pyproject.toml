@@ -9,7 +9,8 @@ license = "GPL-3.0"
 exclude = ["examples"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+# python 3.5 or higher
+python = "^3.5"
 tqdm = "^4.32"
 elote = "^0.1.0"
 glicko2 = "2.0.0"
