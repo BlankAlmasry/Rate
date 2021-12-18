@@ -10,10 +10,9 @@ Supported Algorithms:
 
 ## Usage
 ```
-rate
+rate path/to/file.csv or path/to/file.json
 ```
 And you will get prompted with interactive options to select:
-- File
 - First player key in the file
 - Second player key in the file
 - Result key from the first player perspective in the file
@@ -31,7 +30,6 @@ And you will get prompted with interactive options to select:
 | Sam     | John    | Lost    | won     | 12-16-2021 |
 #### examples of generated files in /examples
 ### Answers
-- File: matches.csv
 - First player key: player1
 - Second player key: player2
 - Result key: result1
