@@ -13,6 +13,7 @@ Supported Algorithms:
 rate path/to/file.csv or path/to/file.json
 ```
 And you will get prompted with interactive options to select:
+![alt](https://media.giphy.com/media/YYHcenJxvdeoHy60Y8/giphy.gif)
 - First player key in the file
 - Second player key in the file
 - Result key from the first player perspective in the file

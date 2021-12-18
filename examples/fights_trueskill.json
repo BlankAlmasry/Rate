@@ -1,5 +1,85 @@
 [
 {
+  "file_name": "Nate-Diaz",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Josh-Neer",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Clay-Guida",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Mac-Danzig",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Alan-Belcher",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Ed-Herman",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Eric-Schafer",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Houston-Alexander",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Alessio-Sakara",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Joe-Vedepo",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Wilson-Gouveia",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Ryan-Jensen",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Joe-Lauzon",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Kyle-Bradley",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Jason-Brilz",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Brad-Morris",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Mike-Massenzio",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Drew-McFedries",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Dan-Miller",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Rob-Kimmons",
+  "rating": "20.604167980000835"
+},
+{
   "file_name": "Brock-Lesnar",
   "rating": "29.39583201999916"
 },
@@ -160,6 +240,78 @@
   "rating": "20.604167980000835"
 },
 {
+  "file_name": "Rashad-Evans",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Chuck-Liddell",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Rich-Franklin",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Matt-Hamill",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Dan-Henderson",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Rousimar-Palhares",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Nate-Marquardt",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Martin-Kampmann",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Dong Hyun-Kim",
+  "rating": "30.997127189715027"
+},
+{
+  "file_name": "Matt-Brown",
+  "rating": "24.954246683290606"
+},
+{
+  "file_name": "Kurt-Pellegrino",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Thiago-Tavares",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Tim-Boetsch",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Michael-Patt",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Jason-MacDonald",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Jason-Lambert",
+  "rating": "20.604167980000835"
+},
+{
+  "file_name": "Ryo-Chonan",
+  "rating": "29.39583201999916"
+},
+{
+  "file_name": "Roan-Carneiro",
+  "rating": "20.604167980000835"
+},
+{
   "file_name": "Forrest-Griffin",
   "rating": "29.39583201999916"
 },
@@ -273,11 +425,11 @@
 },
 {
   "file_name": "Thales-Leites",
-  "rating": "29.39583201999916"
+  "rating": "28.458390603742465"
 },
 {
   "file_name": "Drew-McFedries",
-  "rating": "20.604167980000835"
+  "rating": "18.04281876924262"
 },
 {
   "file_name": "Spencer-Fisher",
@@ -289,11 +441,11 @@
 },
 {
   "file_name": "Dan-Miller",
-  "rating": "29.39583201999916"
+  "rating": "31.95718123075737"
 },
 {
   "file_name": "Matt-Horwich",
-  "rating": "20.604167980000835"
+  "rating": "21.541609396257527"
 },
 {
   "file_name": "Hermes-Franca",
@@ -312,156 +464,84 @@
   "rating": "20.604167980000835"
 },
 {
-  "file_name": "Rashad-Evans",
+  "file_name": "Josh-Koscheck",
+  "rating": "28.8081756998357"
+},
+{
+  "file_name": "Yoshiyuki-Yoshida",
+  "rating": "20.55626934299477"
+},
+{
+  "file_name": "Mike-Swick",
   "rating": "29.39583201999916"
 },
 {
-  "file_name": "Chuck-Liddell",
+  "file_name": "Jonathan-Goulet",
   "rating": "20.604167980000835"
 },
 {
-  "file_name": "Rich-Franklin",
+  "file_name": "Steve-Cantwell",
   "rating": "29.39583201999916"
 },
 {
-  "file_name": "Matt-Hamill",
+  "file_name": "Razak-Al-Hassan",
   "rating": "20.604167980000835"
 },
 {
-  "file_name": "Dan-Henderson",
+  "file_name": "Tim-Credeur",
   "rating": "29.39583201999916"
 },
 {
-  "file_name": "Rousimar-Palhares",
+  "file_name": "Nate-Loughran",
   "rating": "20.604167980000835"
 },
 {
-  "file_name": "Nate-Marquardt",
+  "file_name": "Jim-Miller",
+  "rating": "31.95718123075737"
+},
+{
+  "file_name": "Matt-Wiman",
+  "rating": "21.541609396257527"
+},
+{
+  "file_name": "Luigi-Fioravanti",
   "rating": "29.39583201999916"
 },
 {
-  "file_name": "Martin-Kampmann",
+  "file_name": "Brodie-Farber",
   "rating": "20.604167980000835"
 },
 {
-  "file_name": "Dong Hyun-Kim",
-  "rating": "30.997127189715027"
-},
-{
-  "file_name": "Matt-Brown",
-  "rating": "24.954246683290606"
-},
-{
-  "file_name": "Kurt-Pellegrino",
+  "file_name": "Steve-Bruno",
   "rating": "29.39583201999916"
 },
 {
-  "file_name": "Thiago-Tavares",
+  "file_name": "Johnny-Rees",
   "rating": "20.604167980000835"
 },
 {
-  "file_name": "Tim-Boetsch",
+  "file_name": "Ben-Saunders",
   "rating": "29.39583201999916"
 },
 {
-  "file_name": "Michael-Patt",
+  "file_name": "Brandon-Wolff",
   "rating": "20.604167980000835"
 },
 {
-  "file_name": "Jason-MacDonald",
-  "rating": "29.39583201999916"
+  "file_name": "Dale-Hartt",
+  "rating": "28.458390603742465"
 },
 {
-  "file_name": "Jason-Lambert",
-  "rating": "20.604167980000835"
+  "file_name": "Corey-Hill",
+  "rating": "18.04281876924262"
 },
 {
-  "file_name": "Ryo-Chonan",
-  "rating": "29.39583201999916"
+  "file_name": "Justin-McCully",
+  "rating": "25.790451195694832"
 },
 {
-  "file_name": "Roan-Carneiro",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Rashad-Evans",
-  "rating": "33.0726821632326"
-},
-{
-  "file_name": "Forrest-Griffin",
-  "rating": "25.71898187676572"
-},
-{
-  "file_name": "Frank-Mir",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Antonio Rodrigo-Nogueira",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "CB-Dollaway",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Mike-Massenzio",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Quinton-Jackson",
-  "rating": "25.045753316709387"
-},
-{
-  "file_name": "Wanderlei-Silva",
-  "rating": "19.002872810284977"
-},
-{
-  "file_name": "Cheick-Kongo",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Mostapha-Al-Turk",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Yushin-Okami",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Dean-Lister",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Antoni-Hardonk",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Mike-Wessel",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Matt-Hamill",
-  "rating": "25.045753316709387"
-},
-{
-  "file_name": "Reese-Andy",
-  "rating": "19.002872810284977"
-},
-{
-  "file_name": "Brad-Blackburn",
-  "rating": "30.997127189715027"
-},
-{
-  "file_name": "Ryo-Chonan",
-  "rating": "24.954246683290606"
-},
-{
-  "file_name": "Pat-Barry",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Dan-Evensen",
-  "rating": "20.604167980000835"
+  "file_name": "Eddie-Sanchez",
+  "rating": "19.309439326155555"
 },
 {
   "file_name": "Efrain-Escudero",
@@ -489,11 +569,11 @@
 },
 {
   "file_name": "Wilson-Gouveia",
-  "rating": "30.997127189715027"
+  "rating": "33.0726821632326"
 },
 {
   "file_name": "Jason-MacDonald",
-  "rating": "24.954246683290606"
+  "rating": "25.71898187676572"
 },
 {
   "file_name": "Junie-Browning",
@@ -553,19 +633,19 @@
 },
 {
   "file_name": "Amir-Sadollah",
-  "rating": "30.997127189715027"
-},
-{
-  "file_name": "CB-Dollaway",
-  "rating": "24.954246683290606"
-},
-{
-  "file_name": "Diego-Sanchez",
   "rating": "29.39583201999916"
 },
 {
-  "file_name": "Luigi-Fioravanti",
+  "file_name": "CB-Dollaway",
   "rating": "20.604167980000835"
+},
+{
+  "file_name": "Diego-Sanchez",
+  "rating": "30.997127189715027"
+},
+{
+  "file_name": "Luigi-Fioravanti",
+  "rating": "24.954246683290606"
 },
 {
   "file_name": "Spencer-Fisher",
@@ -593,11 +673,11 @@
 },
 {
   "file_name": "Drew-McFedries",
-  "rating": "25.045753316709387"
+  "rating": "22.341838489182273"
 },
 {
   "file_name": "Marvin-Eastman",
-  "rating": "19.002872810284977"
+  "rating": "17.85516208454727"
 },
 {
   "file_name": "Matt-Brown",
@@ -609,193 +689,105 @@
 },
 {
   "file_name": "Dean-Lister",
-  "rating": "25.045753316709387"
+  "rating": "29.39583201999916"
 },
 {
   "file_name": "Jeremy-Horn",
-  "rating": "19.002872810284977"
+  "rating": "20.604167980000835"
 },
 {
   "file_name": "Rob-Kimmons",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Rob-Yundt",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Josh-Koscheck",
-  "rating": "28.8081756998357"
-},
-{
-  "file_name": "Yoshiyuki-Yoshida",
-  "rating": "20.55626934299477"
-},
-{
-  "file_name": "Mike-Swick",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Jonathan-Goulet",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Steve-Cantwell",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Razak-Al-Hassan",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Tim-Credeur",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Nate-Loughran",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Jim-Miller",
-  "rating": "31.95718123075737"
-},
-{
-  "file_name": "Matt-Wiman",
-  "rating": "21.541609396257527"
-},
-{
-  "file_name": "Luigi-Fioravanti",
   "rating": "25.045753316709387"
 },
 {
-  "file_name": "Brodie-Farber",
+  "file_name": "Rob-Yundt",
   "rating": "19.002872810284977"
 },
 {
-  "file_name": "Steve-Bruno",
-  "rating": "29.39583201999916"
+  "file_name": "Thiago-Alves",
+  "rating": "33.581936718738625"
 },
 {
-  "file_name": "Johnny-Rees",
-  "rating": "20.604167980000835"
+  "file_name": "Matt-Hughes",
+  "rating": "22.059012900834652"
 },
 {
-  "file_name": "Ben-Saunders",
-  "rating": "29.39583201999916"
+  "file_name": "Michael-Bisping",
+  "rating": "31.95718123075737"
 },
 {
-  "file_name": "Brandon-Wolff",
-  "rating": "20.604167980000835"
+  "file_name": "Jason-Day",
+  "rating": "21.541609396257527"
 },
 {
-  "file_name": "Dale-Hartt",
-  "rating": "28.458390603742465"
-},
-{
-  "file_name": "Corey-Hill",
-  "rating": "18.04281876924262"
-},
-{
-  "file_name": "Justin-McCully",
-  "rating": "25.790451195694832"
-},
-{
-  "file_name": "Eddie-Sanchez",
-  "rating": "19.309439326155555"
-},
-{
-  "file_name": "Nate-Diaz",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Josh-Neer",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Clay-Guida",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Mac-Danzig",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Alan-Belcher",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Ed-Herman",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Eric-Schafer",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Houston-Alexander",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Alessio-Sakara",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Joe-Vedepo",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Wilson-Gouveia",
-  "rating": "33.09821128362253"
-},
-{
-  "file_name": "Ryan-Jensen",
-  "rating": "21.911067688932356"
-},
-{
-  "file_name": "Joe-Lauzon",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Kyle-Bradley",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Jason-Brilz",
-  "rating": "29.39583201999916"
-},
-{
-  "file_name": "Brad-Morris",
-  "rating": "20.604167980000835"
-},
-{
-  "file_name": "Mike-Massenzio",
-  "rating": "25.720451755363985"
-},
-{
-  "file_name": "Drew-McFedries",
-  "rating": "21.140958397523946"
-},
-{
-  "file_name": "Dan-Miller",
+  "file_name": "Mike-Swick",
   "rating": "33.0726821632326"
 },
 {
-  "file_name": "Rob-Kimmons",
+  "file_name": "Marcus-Davis",
   "rating": "25.71898187676572"
 },
 {
-  "file_name": "BJ-Penn",
-  "rating": "31.637738414264692"
+  "file_name": "Thales-Leites",
+  "rating": "32.39117676561117"
 },
 {
-  "file_name": "Sean-Sherk",
-  "rating": "26.482153989505928"
+  "file_name": "Nate-Marquardt",
+  "rating": "25.494799404136714"
 },
 {
-  "file_name": "Wanderlei-Silva",
-  "rating": "25.123086127427623"
+  "file_name": "Fabricio-Werdum",
+  "rating": "24.281018123234272"
 },
 {
-  "file_name": "Keith-Jardine",
-  "rating": "22.731965841400108"
+  "file_name": "Brandon-Vera",
+  "rating": "16.927317836767397"
+},
+{
+  "file_name": "Martin-Kampmann",
+  "rating": "25.045753316709387"
+},
+{
+  "file_name": "Jorge-Rivera",
+  "rating": "19.002872810284977"
+},
+{
+  "file_name": "Matt-Wiman",
+  "rating": "25.016500939378126"
+},
+{
+  "file_name": "Thiago-Tavares",
+  "rating": "17.15733291489348"
+},
+{
+  "file_name": "Kevin-Burns",
+  "rating": "24.281018123234272"
+},
+{
+  "file_name": "Roan-Carneiro",
+  "rating": "16.927317836767397"
+},
+{
+  "file_name": "Luiz-Cane",
+  "rating": "31.22962902960427"
+},
+{
+  "file_name": "Jason-Lambert",
+  "rating": "18.770370970395735"
+},
+{
+  "file_name": "Paul-Taylor",
+  "rating": "24.281018123234272"
+},
+{
+  "file_name": "Jess-Liaudin",
+  "rating": "16.927317836767397"
+},
+{
+  "file_name": "Antoni-Hardonk",
+  "rating": "28.16137767331849"
+},
+{
+  "file_name": "Eddie-Sanchez",
+  "rating": "17.13764925994894"
 }]
