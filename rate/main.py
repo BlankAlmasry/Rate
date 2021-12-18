@@ -50,14 +50,14 @@ def main():
         file = sys.argv[1:][0]
     except IndexError:
         print("Please provide a file name")
-        exit(1)
+        sys.exit()
     if not isfile(file):
         print("File does not exist")
-        exit(1)
+        sys.exit()
     if file.strip().split(".")[-1] not in supported_readers:
         # print the same without f strings
         print("File format not supported. Supported formats are: " + ", ".join(supported_readers))
-        exit(1)
+        sys.exit()
 
     # create reader
     reader = ReaderFactory.create_reader(file)
