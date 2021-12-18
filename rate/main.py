@@ -3,7 +3,6 @@ from __future__ import print_function, unicode_literals
 import os
 import sys
 from os.path import isfile
-
 from rate.calculator import Calculator
 from rate.gui import GUI
 from rate.readers import ReaderFactory

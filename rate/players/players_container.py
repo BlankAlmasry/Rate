@@ -4,20 +4,21 @@ class PlayersContainer:
 
     def add_player(self, name, rating):
         if name in self.players.keys():
-            raise ValueError(f"Player {name} already exists")
+            raise ValueError("Player {} already exists".format(name))
         self.players[name] = rating
 
     def get_player(self, name):
         if name not in self.players.keys():
-            raise ValueError(f"Player {name} does not exist")
+            raise ValueError("Player {} doesn't exists".format(name))
+
         return self.players[name]
 
     def update_player(self, key, value):
         if key not in self.players.keys():
-            raise ValueError(f"Player {key} does not exist")
+            raise ValueError("Player {} doesn't exists".format(key))
         self.players[key] = value
 
-    def update_players(self, players: list[list]):
+    def update_players(self, players: list):
         for player in players:
             self.update_player(player[0], player[1])
 
@@ -28,7 +29,7 @@ class PlayersContainer:
         else:
             return self.players[key]
 
-    def find_or_add_players(self, players: list[list]):
+    def find_or_add_players(self, players: list):
         updated_players = []
 
         for player in players:

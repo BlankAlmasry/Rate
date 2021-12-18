@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rate"
-version = "0.1.4"
+version = "0.1.5"
 description = "A simple CLI tool to rate matches in a file."
 readme = "readme.md"
 keywords = ["rate", "match", "rating", "elo", "glicko", "trueskill"]
